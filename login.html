@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Network Anomaly Detection - Login</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="full-page">
+        <div class="navbar">
+            <div>
+                <a href="website.html">Network Anomaly Detection</a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="website.html#home">Home</a></li>
+                    <li><a href="website.html#about">About Us</a></li>
+                    <li><a href="website.html#services">Services</a></li>
+                    <li><a href="website.html#contact">Contact</a></li>
+                    <li><a class="loginbtn" href="login.html" style="width:auto;">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" onclick="login()" class="toggle-btn">Log In</button>
+                <button type="button" onclick="register()" class="toggle-btn">Register</button>
+            </div>
+
+            <form id="login" class="input-group-login" action="#" method="post">
+                <input type="text" class="input-field" placeholder="Username" required />
+                <input type="password" class="input-field" placeholder="Enter Password" required />
+                <input type="checkbox" class="check-box" id="remember" />
+                <label for="remember">Remember Password</label>
+                <button type="submit" class="submit-btn">Log in</button>
+            </form>
+
+            <form id="register" class="input-group-register" action="#" method="post">
+                <input type="text" class="input-field" placeholder="Email Id" required />
+                <input type="email" class="input-field" placeholder="Username" required />
+                <input type="password" class="input-field" placeholder="Enter Password" required />
+                <input type="password" class="input-field" placeholder="Confirm Password" required />
+                <input type="checkbox" class="check-box" id="terms" />
+                <label for="terms">I agree to the terms and conditions</label>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+
+        <footer>
+            © 2025 Network Anomaly Detection. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        var x = document.getElementById('login');
+        var y = document.getElementById('register');
+        var z = document.getElementById('btn');
+
+        function register() {
+            x.style.left = '-400px';
+            y.style.left = '50px';
+            z.style.left = '110px';
+        }
+        function login() {
+            x.style.left = '50px';
+            y.style.left = '450px';
+            z.style.left = '0px';
+        }
+    </script>
+</body>
+</html>
