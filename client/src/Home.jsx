@@ -116,73 +116,75 @@ function Home() {
           padding: 0;
           box-sizing: border-box;
         }
-        html, body {
+        .full-page {
           height: 100%;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                      url('./bg-2.img') no-repeat center center fixed;
+          width: 100%;
+          background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('1.jpg');
+          background-position: center;
+          background-repeat: no-repeat;
           background-size: cover;
-          color: white;
-          display: flex;
-          flex-direction: column;
+          background-attachment: fixed; /* keeps background fixed while scrolling */
+          position: relative;
         }
         header {
-          background-color: rgba(0, 0, 0, 0.85);
+          background-color: #00ffff; /* aqua */
           padding: 30px 50px;
           font-size: 28px;
           font-weight: 600;
           text-align: center;
           letter-spacing: 1px;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+          box-shadow: 0 4px 10px rgba(0, 0, 139, 0.7); /* navy shadow */
+          color: navy;
         }
         .container {
           flex: 1;
           max-width: 900px;
-          background: rgba(0, 0, 0, 0.55);
+          background: rgba(0, 0, 139, 0.55); /* dark blue transparent */
           margin: 30px auto 50px;
           border-radius: 15px;
           padding: 30px 40px;
-          box-shadow: 0 0 20px 9px #ff61241f;
+          box-shadow: 0 0 20px 9px #00ffff33; /* aqua glow */
           display: flex;
           flex-direction: column;
           align-items: center;
         }
         h1 {
-          color: #F3C693;
+          color: #00ffff; /* aqua */
           margin-bottom: 30px;
           font-weight: 700;
           letter-spacing: 1.1px;
         }
         input[type="file"] {
           background: transparent;
-          color: white;
+          color: #00ffff; /* aqua */
           width: 100%;
           padding: 12px;
           border-radius: 8px;
-          border: 2px solid #F3C693;
+          border: 2px solid #00008b; /* dark blue */
           cursor: pointer;
           font-size: 16px;
           transition: border-color 0.3s ease;
           margin-bottom: 20px;
         }
         input[type="file"]:hover {
-          border-color: #d9a969;
+          border-color: #00ffff; /* aqua */
         }
         .submit-btn {
           width: 100%;
-          background: #F3C693;
+          background: #00ffff; /* aqua */
           border: none;
           padding: 15px 0;
           font-size: 18px;
           font-weight: 700;
           border-radius: 30px;
           cursor: pointer;
-          color: black;
+          color: navy;
           transition: background 0.3s ease;
           margin-bottom: 20px;
         }
         .submit-btn:hover {
-          background: #d9a969;
+          background: #00008b; /* dark blue */
+          color: #00ffff;
         }
         #predResults {
           margin-top: 20px;
@@ -191,9 +193,10 @@ function Home() {
           width: 100%;
           font-size: 17px;
           text-align: left;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(0, 255, 255, 0.1); /* translucent aqua */
           border-radius: 10px;
           padding: 15px 20px;
+          color: #00ffff; /* aqua */
         }
         #predResults ul {
           list-style: none;
@@ -204,50 +207,50 @@ function Home() {
           line-height: 1.4;
         }
         .anomaly {
-          color: #ff6b6b;
+          color: #1e90ff; /* dodgerblue */
           font-weight: bold;
         }
         .normal {
-          color: #98fb98;
+          color: #00ffff; /* aqua */
         }
         table {
           width: 100%;
           border-collapse: collapse;
           margin-top: 25px;
-          color: white;
+          color:rgb(247, 248, 248); /* aqua */
         }
         th, td {
-          border: 1px solid #F3C693;
+          border: 1px solid #00008b; /* dark blue border */
           padding: 8px 10px;
           text-align: center;
         }
         th {
-          background-color: #F3C693;
-          color: black;
+          background-color:rgba(105, 221, 241, 0.88); /* aqua */
+          color: navy;
         }
         .prediction-cell.anomaly {
-          background-color: #ff6b6b;
+          background-color:#ff6b6b; 
           color: white;
           font-weight: 700;
         }
         .prediction-cell.normal {
           background-color: #98fb98;
-          color: black;
+          color: navy;
           font-weight: 700;
         }
         .summary {
           margin-top: 20px;
           font-size: 18px;
           font-weight: 700;
-          color: #F3C693;
+          color: black; 
         }
         footer {
-          background-color: rgba(0, 0, 0, 0.85);
-          color: white;
+          background-color: black; 
+          color: #00ffff; /* aqua */
           padding: 20px 10px;
           text-align: center;
           font-size: 15px;
-          box-shadow: 0 -4px 10px rgba(0,0,0,0.7);
+          box-shadow: 0 -4px 10px rgba(8, 8, 8, 0.7);
         }
         @media(max-width: 1024px) {
           .container {
@@ -271,6 +274,7 @@ function Home() {
         }
       `}</style>
 
+
       <header>Network Intrusion Detection System - CSV Batch Prediction</header>
 
       <div className="container">
@@ -289,14 +293,14 @@ function Home() {
             <div style={{ width: "100%", height: 220, marginTop: 30 }}>
               <ResponsiveContainer>
                 <BarChart data={chartData}>
-                  <XAxis dataKey="name" stroke="#F3C693" />
-                  <YAxis stroke="#F3C693" allowDecimals={false} />
+                  <XAxis dataKey="name" stroke="black" />
+                  <YAxis stroke="black" allowDecimals={false} />
                   <Tooltip
-                    contentStyle={{ backgroundColor: "#333", borderRadius: "8px" }}
-                    labelStyle={{ color: "#F3C693" }}
+                    contentStyle={{ backgroundColor: "white", borderRadius: "8px" }}
+                    labelStyle={{ color: "#00008b" }}
                     formatter={(value) => [`${value}`, "Count"]}
                   />
-                  <Bar dataKey="count" fill="#F3C693" radius={[10, 10, 0, 0]} />
+                  <Bar dataKey="count" fill="#00008b" radius={[10, 10, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
